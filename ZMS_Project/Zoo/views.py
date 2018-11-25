@@ -409,7 +409,7 @@ def feedback(request):
 
 
 def calc_feedback_score(text):
-    subscription_key = "2292fabc461849e2ad69949ede7ea881"
+    subscription_key = "Asure Subscription Key"
     text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
 
 
