@@ -1,0 +1,192 @@
+{%  extends 'Zoo/base_wobg.html' %}
+
+
+
+{% block content %}
+
+<style>
+    /*table, th, td {*/
+        /*float: top;*/
+    /*border: 1px solid black;*/
+    /*border-collapse: collapse;*/
+    /*width: 85%;*/
+    /*}*/
+
+
+
+    /*th, td {*/
+    /*padding: 5px;*/
+    /*text-align: left;*/
+    /*}*/
+        /*h3{*/
+            /*color: green;*/
+        /*}*/
+
+    /*.column {*/
+    /*float: right;*/
+    /*width: 33.33%;*/
+    /*padding: 5px;*/
+/*}*/
+
+</style>
+<!--<div>-->
+<!--<div style="float: left" >-->
+    <!--<h3>Details</h3>-->
+    <!--<br>-->
+
+
+    <!--<table style="border: 1px solid black;">-->
+        <!--<tr>-->
+            <!--<th>ID</th>-->
+            <!--<td> {{key.id}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>Name</th>-->
+            <!--<td>{{ key.get_name }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>Department</th>-->
+            <!--<td>{{ department_name }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>Salary</th>-->
+            <!--<td>{{ salary}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>DOJ</th>-->
+            <!--<td>{{ doj }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>Animals In charge</th>-->
+            <!--<td>-->
+                <!--{% for a in animals %}-->
+                    <!--{{a}} ,-->
+                <!--{% endfor %}-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th>Exhibits In charge</th>-->
+            <!--<td>-->
+                <!--{% for e in exhibits%}-->
+                    <!--{{e}} ,-->
+                <!--{% endfor %}-->
+            <!--</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+
+    <!--<br>-->
+    <!--<br>-->
+    <!--<div>-->
+        <!--<div class="text-left">-->
+        <!--<a class="btn btn-primary" role="button" href="{% url 'edit_staff' key.id %}" >Edit</a>-->
+        <!--<a class="btn btn-primary" role="button" href="{% url 'staff_delete' key.id%}" >Delete</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--{% if url %}-->
+    <!--&lt;!&ndash;<img style="float: right;" height="420" width="420" src="{{ url }}">&ndash;&gt;-->
+
+    <!--<div class="column">-->
+    <!--<img src="{{ url }}"  height="300" width="300";>-->
+    <!--</div>-->
+
+    <!--{% endif %}-->
+
+    <!--</div>-->
+
+
+
+<br>
+
+<div class="row">
+        <div class="col-sm-7">
+            <h2 class="text-center">Details</h2>
+
+                <div class="col-md-6 offset-md-3" style="float: left;">
+                    <table class="table table-hover" style="float:left;">
+                        <tr>
+            <th>ID</th>
+            <td> {{key.id}}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ key.get_name }}</td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td>{{ key.contactno }}</td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>{{ department_name }}</td>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <td>{{ salary}}</td>
+        </tr>
+        <tr>
+            <th>DOJ</th>
+            <td>{{ doj }}</td>
+        </tr>
+        <tr>
+            <th>Animals In charge</th>
+            {% if animals %}
+            <td>
+                {% for a in animals %}
+                    {{a}} ,
+                {% endfor %}
+            </td>
+            {% else %}
+            <td>
+                {{ None }}
+            </td>
+            {% endif %}
+
+        </tr>
+        <tr>
+            <th>Exhibits In charge</th>
+            {% if exhibits %}
+            <td>
+                {% for e in exhibits %}
+                    {{e}} ,
+                {% endfor %}
+            </td>
+            {% else %}
+            <td>
+                {{ None }}
+            </td>
+            {% endif %}
+
+        </tr>
+                    </table>
+
+
+                    <div>
+        <div class="text-left">
+        <a class="btn btn-primary" role="button" href="{% url 'edit_staff' key.id %}" >Edit</a>
+        <a class="btn btn-primary" role="button" href="{% url 'staff_delete' key.id%}" >Delete</a>
+        </div>
+    </div>
+                </div>
+             <br>
+    <br>
+
+        </div>
+
+            <div class="col-sm-5">
+                {% if url %}
+    <!--<img style="float: right;" height="420" width="420" src="{{ url }}">-->
+
+
+    <img src="{{ url }}"  height="300" width="300";>
+
+    {% endif %}
+            </div>
+        </div>
+
+
+
+{% endblock %}
+

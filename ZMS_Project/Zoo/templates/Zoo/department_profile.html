@@ -1,0 +1,90 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <br>
+
+    <!--ID = {{ key.id }}-->
+    <!--<br>-->
+    <!--Name = {{ key.name }}-->
+
+    <!--<p></p>-->
+    <!--<div>-->
+        <!--<div class="text-left">-->
+        <!--<a class="btn btn-primary" role="button" href="{% url 'edit_department' key.id %}" >Edit</a>-->
+        <!--<a class="btn btn-primary" role="button" href="{% url 'delete' key.id%}" >Delete</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--{% if url %}-->
+    <!--<img style="float: right;" height="420" width="420" src="{{ url }}">-->
+
+    <!--{% endif %}-->
+
+    <div class="row">
+        <div class="col-sm-7">
+            <h2 class="text-center">Details</h2>
+
+                <div class="col-md-6 offset-md-3" style="float: left;">
+                    <table class="table table-hover" style="float:left;">
+                        <tr>
+            <th>ID</th>
+            <td> {{key.id}}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ key.name}}</td>
+        </tr>
+        <tr>
+            <th>Minimun Salary</th>
+            <td>{{ min_salary}}</td>
+        </tr>
+        <tr>
+            <th>Maximum Salary</th>
+            <td>{{ max_salary }}</td>
+        </tr>
+        <tr>
+            <th>Average Salary</th>
+            <td>{{ avg_salary }}</td>
+        </tr>
+        <tr>
+            <th>Employees count</th>
+            <td>{{ emp_count}}</td>
+        </tr>
+
+                    </table>
+            <div>
+        <div class="text-left">
+        <a class="btn btn-primary" role="button" href="{% url 'edit_department' key.id %}" >Edit</a>
+        <a class="btn btn-primary" role="button" href="{% url 'delete' key.id%}" >Delete</a>
+        </div>
+    </div>
+
+
+
+                </div>
+             <br>
+    <br>
+
+        </div>
+
+            <div class="col-sm-5">
+                {% if url %}
+    <!--<img style="float: right;" height="420" width="420" src="{{ url }}">-->
+
+
+    <img src="{{ url }}"  height="300" width="300";>
+
+    {% endif %}
+            </div>
+        </div>
+
+{% endblock %}
+
+</body>
+</html>

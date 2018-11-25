@@ -1,0 +1,103 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill</title>
+</head>
+
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<body>
+
+{% block content %}
+<br>
+<h1> BILL</h1>
+
+<br>
+<br>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Name:</th>
+    <td>{{ name }}</td>
+  </tr>
+  <tr>
+    <th>Adult Tickets:</th>
+    <td>{{n1}}</td>
+  </tr>
+  <tr>
+    <th>Adult Tickets Total Price:</th>
+    <td>{{ price1}}</td>
+  </tr>
+    <tr>
+    <th>Children Tickets:</th>
+    <td>{{n2}}</td>
+  </tr>
+    <tr>
+    <th>Children Tickets Total Price:</th>
+    <td>{{ price2}}</td>
+  </tr>
+    <tr>
+    <th>Grand Total:</th>
+    <td>{{ total}}</td>
+  </tr>
+</table>
+
+<!--<table>-->
+
+  <!--<tr>-->
+    <!--<th>Adult Tickets</th>-->
+    <!--<th>Adult Ticket Total Price</th>-->
+    <!--<th>Children Tickets</th>-->
+    <!--<th>Children Ticket Total Price</th>-->
+      <!--<th>Grand Total</th>-->
+  <!--</tr>-->
+
+  <!--<tr>-->
+
+    <!--<th>{{ n1}}</th>-->
+      <!--<th>{{ price1 }}</th>-->
+      <!--<th>{{ n2}} </th>-->
+      <!--<th> {{ price2}}</th>-->
+      <!--<th> {{ total }}</th>-->
+
+  <!--</tr>-->
+
+
+
+<!--</table>-->
+    <!--<ul>-->
+        <!--<li> {{ n1}}  {{ price1}}</li>-->
+        <!--<li> {{ n2}}  {{ price2}}</li>-->
+        <!--<li> {{total}}</li>-->
+    <!--</ul>-->
+
+
+
+    <div style="text-align: center;">
+        <!--<a class="btn btn-primary" role="button" href="{% url 'home' %} " >Pay</a>-->
+      <a title="Print Screen" alt="Print Screen" class ="btn btn-primary " onclick="window.print();" target="_blank" style="cursor:pointer;" >PRINT</a>
+    </div>
+
+{% endblock %}
+</body>
+</html>
+
+
+
+

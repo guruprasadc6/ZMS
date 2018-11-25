@@ -1,0 +1,46 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        p{
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+        <br>
+
+        <h2 class="text-center">Add Exhibit</h2>
+
+        <p class="text-center" style="color: red";>* indicates compulsory field</p>
+
+        <div class="col-md-6 offset-md-3">
+        <form method='POST' action = "{% url 'add_exhibit' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+
+            {% for field in form %}
+                <div class="submit-link-row">{{ field.label_tag }} <br> {{ field }}</div>
+                {% if form.errors %}
+                    {% for error in field.errors %}
+                        <p class="alert alert-warning" >
+                            <strong>{{ error|escape }}</strong>
+                        </p>
+                    {% endfor %}
+                {% endif %}
+
+            {% endfor %}
+
+
+        <!--{{ form.as_p }}-->
+
+            <br>
+                <input type="submit" value="Add Exhibit" class="btn btn-primary">
+        </form></div>
+
+    {% endblock %}
+
+</body>
+</html>

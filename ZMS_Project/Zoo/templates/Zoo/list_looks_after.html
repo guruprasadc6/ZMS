@@ -1,0 +1,71 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOOKS AFTER</title>
+    <!DOCTYPE html>
+</head>
+<body>
+{% block content %}
+<br>
+    <div>
+        <form method='POST' action = "{% url 'list_looks_after' %}">
+        {% csrf_token %}
+            <div class="input-group">
+            <input class="form-control col-sm-12" type="search" placeholder="Search" aria-label="Search" name="search_text">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">LOOKS AFTER</h2>
+                {% if looks_after_objects.count > 0  %}
+                <div class="col-md-6 offset-md-3">
+                    <table class="table table-hover">
+                    <tr>
+                        <th>STAFF</th>
+                        <th>ANIMAL</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </tr>
+                    {% for l in looks_after_objects %}
+                        <tr>
+                        <!--<td>{{ l.animal }}</td>-->
+                        <!--<td>{{ l.exhibit}}</td>-->
+                            <td>{{ l.staff.get_name }}</td>
+                            <td>{{ l.animal.commonname }}</td>
+                            
+                            <!--<td>-->
+                            <!--<a href="{% url 'looks_after_profile' l.id %}">View</a>-->
+                        <!--</td>-->
+                            <td>
+                                <a href="{% url 'edit_looks_after' l.id %}" >Edit</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_looks_after' l.id %}" >Delete</a>
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                    {{ 'No records to display' }}
+                {% endif %}
+            </div>
+        </div>
+
+    <div class="text-left">
+                <a class="btn btn-primary" role="button" href="{% url 'home' %}" >Back</a>
+                <a class="btn btn-primary" role="button" href="{% url 'looks_after' %}" >Add Relation</a>
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+    <style>
+
+        h3{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h3 > You are not Permitted this Functionlity</h3>
+
+    <div>
+        <div class="text-left">
+            <a class="btn btn-primary" role="button" href="{% url 'home'  %}" >Back</a>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

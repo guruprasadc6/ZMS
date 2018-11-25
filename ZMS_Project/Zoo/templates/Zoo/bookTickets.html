@@ -1,0 +1,191 @@
+{%  extends 'Zoo/base_wobg.html' %}
+
+
+<!DOCTYPE html>S
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TICKET</title>
+</head>
+<body>
+<style>
+
+
+    .two-col {
+    overflow: hidden;/* Makes this div contain its floats */
+}
+
+.two-col .col1,
+.two-col .col2 {
+    width: 49%;
+}
+
+.two-col .col1 {
+    float: left;
+}
+
+.two-col .col2 {
+    float: right;
+}
+
+.two-col label {
+    display: block;
+}
+
+
+
+
+
+
+</style>
+{% block content%}
+    <br>
+
+    <h2 class="text-center">BOOK TICKET</h2>
+
+
+
+    <!--    <form method="post">{% csrf_token %}
+            <ul>
+                {{form.as_ul}}
+            </ul>
+
+          <input type="submit",name="submit" value="BOOK">
+        </form>
+
+    </div> !-->
+ <div id="container ">
+      <form method="post" >{% csrf_token %}
+
+
+
+          <table >
+        <tr>
+            <td  style="padding-right: 200px" >
+            <label>First Name:</label>
+
+                {{ form.f_name }}
+
+
+
+                {% for error in form.f_name.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+
+
+
+
+
+            </td>
+            <td >
+                <label>Last Name:</label>
+                               {{ form.l_name }}
+
+
+                {% for error in form.l_name.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+
+
+            </td>
+
+        </tr>
+
+        <tr >
+        <td style="padding-top: 50px; padding-right: 200px">
+            <label>Age:</label>
+               {{ form.age}}
+
+                    {% for error in form.age.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+
+            </td>
+            <td style="padding-top: 20px" >
+                <label>Gender:</label>
+               {{ form.gender}}
+
+
+
+            </td>
+        </tr>
+
+    <tr>
+         <td style="padding-top: 50px; padding-right: 200px" >
+             <label>Contact Number:</label>
+                  {{form.contact}}
+
+                        {% for error in form.contact.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+
+              </td>
+              <td style="padding-top: 45px">
+                  <label>Email:</label>
+                  {{form.email}}
+              </td>
+    </tr>
+
+              <tr>
+                  <td  style="padding-top: 50px; padding-right: 200px">
+                      <label>City:</label>
+                      {{form.city}}
+                  </td>
+                  <td style="padding-top: 70px">
+                      <label>Date of Visit:</label>
+                      {{form.date_of_visit}}
+
+                        {% for error in form.date_of_visit.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+                  </td>
+              </tr>
+
+              <tr>
+                  <td  style="padding-top: 50px; padding-right: 200px">
+                      <label>Number of Adult Tickets:</label>
+                      {{form.no_of_adult_tickets}}
+                  </td>
+
+                  <td style="padding-top: 45px">
+                      <label>Number of children Tickets:</label>
+                      {{form.no_of_child_tickets}}
+                  </td>
+              </tr>
+
+
+		</table>
+
+
+
+
+
+            <!-- <button type="submit" formaction="/ticketBill.html" name="NEXT" value="NEXT">NEXT</button> -->
+          <input class="btn btn-primary" style="margin-left: 500px;margin-top: 30px" type="submit",name="submit"  value="BILL">
+        </form>
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+{% endblock %}
+</body>
+
+

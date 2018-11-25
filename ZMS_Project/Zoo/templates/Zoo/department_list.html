@@ -1,0 +1,60 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEPT</title>
+    <!DOCTYPE html>
+</head>
+<body>
+{% block content %}
+    <br>
+
+    <div>
+        <form method='POST' action = "{% url 'department_list' %}">
+        {% csrf_token %}
+            <div class="input-group">
+            <input class="form-control col-sm-12" type="search" placeholder="Search" aria-label="Search" name="search_text">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">DEPARTMENT LIST</h2>
+                {% if depts.count > 0  %}
+                <div class="col-md-6 offset-md-3">
+                    <table class="table table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                    {% for dept in depts %}
+                        <tr>
+                        <td>{{ dept.id }}</td>
+                        <td>{{ dept.name }}</td>
+                        <td>
+                            <a href="{% url 'department_profile' dept.id%}">View</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                    {{ 'No records to display' }}
+                {% endif %}
+            </div>
+        </div>
+
+    <div class="text-left">
+                <a class="btn btn-primary" role="button" href="{% url 'home' %}" >Back</a>
+                <a class="btn btn-primary" role="button" href="{% url 'add_department' %}" >Add Department</a>
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
+</body>
+</html>

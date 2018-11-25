@@ -1,0 +1,25 @@
+{%  extends 'Zoo/base_wobg.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<br>
+    ID = {{ key.id }}
+    <br>
+    Name = {{ key.name }}
+
+    <p></p>
+    <div>
+        <div class="text-left">
+        <a class="btn btn-primary" role="button" href="{% url 'edit_department' key.id %}" >Edit</a>
+        <a class="btn btn-primary" role="button" href="{% url 'delete' key.id%}" >Delete</a>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
